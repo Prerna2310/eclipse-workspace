@@ -1,0 +1,18 @@
+package org.openqa.selenium;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TC1 {
+
+	public static void main(String[] args) {
+		
+//Selenium code
+		//invoke browser
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\geckodriver.exe");
+		WebDriver driver= new FirefoxDriver(); //Create Driver object
+		driver.get("http://google.com");
+		System.out.println(driver.getTitle()); //get title of the webpage
+	}
+
+}
+

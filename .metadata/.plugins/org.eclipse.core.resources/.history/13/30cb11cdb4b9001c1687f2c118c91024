@@ -1,0 +1,13 @@
+import java.io.FileInputStream;
+
+public class dataDriven {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//fileinputstream object for uploading file path
+		FileInputStream fis=new FileInputStream("C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\demodata.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+	}
+
+}

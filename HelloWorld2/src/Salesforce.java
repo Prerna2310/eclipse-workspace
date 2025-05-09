@@ -1,0 +1,17 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Salesforce {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver(); 
+		
+		driver.get("https://login.salesforce.com/");
+		driver.findElement(By.id("username")).sendKeys("mail2sharmaprerna@gmail.com");
+		driver.findElement(By.name("pw")).sendKeys("1234");
+		//driver.findElement(By.className("input r4 wide mb16 mt8 password")).click();//Error
+		driver.findElement(By.xpath("//*[@id=\'Login\']")).click();
+		Thread.sleep(3000);
+		System.out.println(driver.findElement(By.cssSelector("div#error.loginError")).getText());
+}}

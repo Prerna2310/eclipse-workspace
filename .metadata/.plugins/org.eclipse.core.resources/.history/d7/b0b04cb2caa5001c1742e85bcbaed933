@@ -1,0 +1,4 @@
+module MiniProject {
+	requires selenium.api;
+	requires selenium.firefox.driver;
+}

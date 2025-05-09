@@ -1,0 +1,97 @@
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+
+public class Test1 {
+
+	// Count number of names starting with alphabet A
+	// @Test
+	public void regular() {
+		ArrayList<String> names = new ArrayList<String>();// creating object
+		names.add("Abc");
+		names.add("Ram");
+		names.add("Aman");
+		names.add("Asfd");
+		names.add("Sita");
+		int count = 0;
+
+		for (int i = 0; i < names.size(); i++) {
+			String number = names.get(i);
+			count++;
+		}
+		System.out.println(count);
+	}
+
+	// @Test
+	public void streamFilter() {
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Abc");
+		names.add("Rama");
+		names.add("Aman");
+		names.add("Asfd");
+		names.add("Sita");
+
+		System.out.println(names.stream().filter(s -> s.startsWith("A")).count());// used lambda expression
+		// alternative use of lambda exp
+		long d = Stream.of("Abc", "Rama", "Aman", "Asfd", "Sita").filter(s -> {
+			s.startsWith("A");
+			return false;// for failing the condition intentionally so that d=0
+		}).count();
+		System.out.println(d);
+
+		// print all names of ArrayList which has length>4
+		// names.stream().filter(s->s.length()>3).forEach(s->System.out.println(s));//s
+		// is parameter
+		names.stream().filter(s -> s.length() > 3).limit(2).forEach(s -> System.out.println(s));
+	}
+
+	@Test
+	public void streamMap() {
+		ArrayList<String> names = new ArrayList<String>();// creating object
+		names.add("Abc");
+		names.add("Ram");
+		names.add("Aman");
+		names.add("Asfd");
+		names.add("Sita");
+		
+		// print names ending with a in uppercase
+		Stream.of("Abc", "Rama", "Aman", "Asfd", "Sita").filter(s -> s.endsWith("a")).map(s -> s.toUpperCase())
+				.forEach(s -> System.out.println(s));
+		
+		// print names with firstletter as A and sorted
+		List<String> names1 = Arrays.asList("Azc", "Rama", "Amit", "Woman", "Sita");
+		names1.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase())
+				.forEach(s -> System.out.println(s));
+		
+		//merging 2 different lists
+		Stream<String> newStream=Stream.concat(names.stream(), names1.stream());
+		//newStream.forEach(s->System.out.println(newStream));
+		
+		//print true if a word is present in array
+		boolean flag=newStream.anyMatch(s->s.equalsIgnoreCase("Rama"));
+		System.out.println(flag);
+		Assert.assertTrue(flag);
+	}
+	@Test
+	public void streamCollect()
+	{
+		//print 1st name after performing the operation
+		List<String> ls=Stream.of("Abc", "Rama", "Aman", "Asfd", "Sita").filter(s -> s.endsWith("a")).map(s -> s.toUpperCase())
+.collect(Collectors.toList());
+		System.out.println(ls.get(0));
+		
+		//print unique digits and sort them
+		List<Integer> values=Arrays.asList(2,3,5,5,7,7,9);
+		values.stream().distinct().forEach(s->System.out.println(s));
+		values.stream().sorted().forEach(s->System.out.println(s));
+	}
+}

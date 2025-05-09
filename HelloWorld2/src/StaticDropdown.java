@@ -1,0 +1,25 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class StaticDropdown {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\chromedriver_win32 (2)\\Chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		//dropdown with select tag--static
+		WebElement staticDropdown=driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));//for locating the dropdown where it is placed on screen
+		Select dropdown=new Select(staticDropdown);//passed variable inside select statement
+		dropdown.selectByIndex(3);//selecting a value through index number
+		System.out.println(dropdown.getFirstSelectedOption().getText());//to print the value which is first selected
+		Thread.sleep(1000);
+		dropdown.selectByVisibleText("AED");//select value by putting text
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+		dropdown.selectByValue("INR");//select value by putting value given in the html code
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+	}
+}

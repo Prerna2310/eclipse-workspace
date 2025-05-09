@@ -1,0 +1,55 @@
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Cart {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\chromedriver_win32 (2)\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://rahulshettyacademy.com/seleniumPractise");
+
+		int j=0;
+		
+		String[] itemsNeeded = {"Cucumber","Brocolli","Beetroot"};
+
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
+
+		// find list of all elements which have class as product-name
+
+		for (int i = 0; i < products.size(); i++) {
+			
+			// getting index of products and their title
+			//we have Brocolli - 1 kg, we need Brocolli only,using split function 
+			
+			String[] name = products.get(i).getText().split("-");
+			//trim the name to remove white space
+			String formattedName=name[0].trim();
+			
+			//format the text(Cucumber-1kg) to get actual vegetable name(Cucumber)
+
+			// convert array to arraylist for easy search
+			// check whether name extracted is present in itemsNeeded arrayList
+
+			List itemsNeededList = Arrays.asList(itemsNeeded);
+
+			if (itemsNeededList.contains(formattedName)) 
+			{
+				j++;
+				// click on Add to Cart
+				driver.findElement(By.xpath("//button[text()='ADD TO CART']")).click();
+				
+				if(j==3)
+					break;
+			}
+		}
+	}
+
+}

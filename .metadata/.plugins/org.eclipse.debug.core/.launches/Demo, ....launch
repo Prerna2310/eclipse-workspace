@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="HelloWorld"/>
+    <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS"/>
+    <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+        <listEntry value="Css"/>
+        <listEntry value="TC2"/>
+        <listEntry value="Demo"/>
+        <listEntry value="Assignexplicitwait"/>
+        <listEntry value="JavaAlerts"/>
+        <listEntry value="CheckboxHandling"/>
+        <listEntry value="Dropdown"/>
+        <listEntry value="SalesforceE2E"/>
+        <listEntry value="facebookxpath"/>
+        <listEntry value="Assignment2"/>
+        <listEntry value="ParentchildXpath"/>
+        <listEntry value="Xpath"/>
+        <listEntry value="AutoSuggestive"/>
+        <listEntry value="Hello"/>
+        <listEntry value="Test"/>
+        <listEntry value="Fluentwaittest"/>
+        <listEntry value="StaticDropdown"/>
+        <listEntry value="AssignmentCheckbox"/>
+        <listEntry value="UpdatedDropdown"/>
+        <listEntry value="Endtoend"/>
+        <listEntry value="Salesforce"/>
+        <listEntry value="Cart"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+    <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+    <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+    <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>
