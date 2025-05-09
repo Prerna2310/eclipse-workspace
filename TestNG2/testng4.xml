@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+  <test name="Testing parameter">
+  <parameter name="URL" value="https://rahulshettyacademy.com/"/>
+  <parameter name="APIkey/username" value="key.com"/>
+  <classes>
+  <class name="New.Testing"/>
+  </classes>
+  </test> <!-- Test -->
+  
+  <test name="parameterization">
+  <parameter name="URL" value="qaclickacademy.com/"/>
+  <classes>
+  <class name="New.Demo"/>
+  </classes>
+  </test>
+</suite> <!-- Suite -->

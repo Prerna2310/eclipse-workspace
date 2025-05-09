@@ -1,0 +1,33 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class Dropdown {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\chromedriver_win32 (2)\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");//URL in browser
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		driver.findElement(By.xpath("//a[@value='BLR']")).click();//xpath for Bengaluru in FROM city
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//a[@value='MAA']")).click();//xpath for chennai,error: element not interactable because chennai is present for from and to both 
+		//driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();//xpath for chennai in To City using index
+		//div[@id='ctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='BLR']--parent-child xpath for BLR
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight")).click();//select date
+		
+		System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));//getting style attribute
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();//finding Round trip and click
+		System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));//getting style attribute
+		
+	if(driver.findElement(By.id("Div1")).getAttribute("style").contains("1"))
+	{	System.out.println("it's enabled");
+		Assert.assertTrue(true);}
+	else {
+		Assert.assertTrue(false);}
+	}
+
+}

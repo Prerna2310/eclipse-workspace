@@ -1,0 +1,18 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+
+public class TC2 {
+
+	public static void main(String[] args) {
+		
+//Selenium code
+		//invoke browser
+		System.setProperty("webdriver.ie.driver", "C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\IEDriverServer.exe");
+		WebDriver driver= new InternetExplorerDriver(); //Create Driver object
+		driver.get("http://google.com");
+		System.out.println(driver.getTitle()); //get title of the webpage
+		driver.navigate().back();
+	}
+
+}

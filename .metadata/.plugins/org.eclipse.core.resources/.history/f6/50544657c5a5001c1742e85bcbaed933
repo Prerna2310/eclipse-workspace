@@ -1,0 +1,3 @@
+module DemoProject {
+	requires org.seleniumhq.selenium.grid;
+}

@@ -1,0 +1,38 @@
+package Reports;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+public class ExtentReportDemo {
+	ExtentReports extent;//declared globally so that object can be used in diff methods
+	
+	@BeforeTest
+	public void config() {
+		//ExtentReports, ExtentSparkReporter
+		String path= System.getProperty("user.dir")+"\\reports\\index.html";
+		ExtentHtmlReporter reporter=new ExtentHtmlReporter(path);
+		reporter.config().setReportName("Web Automation Results");
+		reporter.config().setDocumentTitle("Test results");
+		
+		ExtentReports extent=new ExtentReports();
+		extent.attachReporter(reporter);//main class have knowledge of object
+		extent.setSystemInfo("Tester", "Prerna");
+	}
+	
+	@Test
+	public void initialDemo()
+	{
+		extent.createTest("Demo");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\OneDrive\\Documents\\Automation Testing\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver(); 
+		driver.get("https://rahulshettyacademy.com/");
+		System.out.println(driver.getTitle());
+		extent.flush();//generates report added at end of test case, stops monitoring
+	}
+
+}
